@@ -7,13 +7,16 @@ class Settings(BaseSettings):
     # Project settings
     PROJECT_NAME: str = "Solar Teacher"
     API_V1_STR: str = "/api/v1"
+    
+    UPSTAGE_API_KEY: str = "dummy_key"
+    PINECONE_API_KEY: str = "dummy_key"
 
     # DATABASE settings
-    DATABASE_USER_NAME: str
-    DATABASE_PASSWORD: str
-    DATABASE_HOST: str
-    DATABASE_PORT: str
-    DATABASE_NAME: str
+    DATABASE_USER_NAME: str = "root"
+    DATABASE_PASSWORD: str = "password"
+    DATABASE_HOST: str = "localhost"
+    DATABASE_PORT: str = "3306"
+    DATABASE_NAME: str = "test_db"
 
     # Upstage settings
     UPSTAGE_BASE_URL: str = "https://api.upstage.ai/v1/solar"

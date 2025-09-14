@@ -173,8 +173,22 @@ def analysis_chunk(input_data):
         print("Retrieved docs len:", len(retrieved_docs))
         print("Retrieved ids len:", len(retrieved_ids))
 
+        # 검색된 문서가 없는 경우 기본 응답 반환
+        if not retrieved_docs:
+            print("No relevant documents found, returning default response")
+            return {
+                "rag_id": "",
+                "response": "<feedback-case type=\"success\"><correct>입력하신 내용을 확인했습니다. 관련 자료가 없어 구체적인 피드백을 제공할 수 없습니다.</correct></feedback-case>",
+                "quiz": "[]",
+                "multiple": "[]",
+                "subjects_id": "default",
+            }
+
         # 가장 개수가 많은 subject 선택
-        subject = max(set(subjects), key=subjects.count)
+        if subjects:
+            subject = max(set(subjects), key=subjects.count)
+        else:
+            subject = "default"
         print("Selected subject:", subject)
 
         # 피드백 프롬프트 생성

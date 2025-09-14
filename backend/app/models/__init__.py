@@ -1,7 +1,7 @@
-from app.models.ox import OX
-from app.models.note import Note
-from app.models.user import User
-from app.models.analysis import Analysis
-from app.models.multiple import MultipleChoice
+from .ox import OX
+from .note import Note
+from .user import User
+from .analysis import Analysis
+from .multiple import MultipleChoice
 
 __all__ = ["User", "Note", "OX", "Analysis", "MultipleChoice"]
